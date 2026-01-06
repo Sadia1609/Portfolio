@@ -38,7 +38,7 @@ const Navbar = () => {
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        scrolled ? 'glass py-3' : 'bg-navy/80 backdrop-blur-md py-4'
+        scrolled ? 'glass py-2 sm:py-3' : 'bg-navy/80 backdrop-blur-md py-3 sm:py-4'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -48,13 +48,13 @@ const Navbar = () => {
             whileHover={{ scale: 1.05 }}
             className="flex items-center"
           >
-            <span className="text-primary font-signature text-3xl font-semibold tracking-wide">
+            <span className="text-primary font-signature text-2xl sm:text-3xl font-semibold tracking-wide">
               Sadia
             </span>
           </motion.div>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-6 lg:space-x-8">
             {navItems.map((item, index) => (
               <motion.button
                 key={item.name}
@@ -75,7 +75,8 @@ const Navbar = () => {
             >
               <Button
                 variant="outline"
-                className="ml-4 glow-on-hover"
+                size="sm"
+                className="ml-2 lg:ml-4 glow-on-hover text-xs sm:text-sm"
                 onClick={() => window.open('/resume.pdf', '_blank')}
               >
                 Resume
@@ -87,9 +88,9 @@ const Navbar = () => {
           <div className="md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-primary hover:text-secondary transition-colors"
+              className="text-primary hover:text-secondary transition-colors p-1"
             >
-              {isOpen ? <X size={24} /> : <Menu size={24} />}
+              {isOpen ? <X size={20} /> : <Menu size={20} />}
             </button>
           </div>
         </div>
@@ -101,7 +102,7 @@ const Navbar = () => {
           transition={{ duration: 0.3 }}
           className="md:hidden overflow-hidden"
         >
-          <div className="glass-card mt-4 rounded-lg p-4">
+          <div className="glass-card mt-3 sm:mt-4 rounded-lg p-3 sm:p-4">
             {navItems.map((item, index) => (
               <motion.button
                 key={item.name}
@@ -109,14 +110,15 @@ const Navbar = () => {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: index * 0.1 }}
                 onClick={() => scrollToSection(item.href)}
-                className="block w-full text-left py-3 text-secondary hover:text-primary transition-colors font-medium text-sm"
+                className="block w-full text-left py-2 sm:py-3 text-secondary hover:text-primary transition-colors font-medium text-sm"
               >
                 {item.name}
               </motion.button>
             ))}
             <Button
               variant="outline"
-              className="w-full mt-4"
+              size="sm"
+              className="w-full mt-3 sm:mt-4 text-sm"
               onClick={() => window.open('/resume.pdf', '_blank')}
             >
               Resume

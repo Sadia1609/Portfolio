@@ -118,38 +118,38 @@ const Contact = () => {
   }
 
   return (
-    <section id="contact" className="py-20 relative">
+    <section id="contact" className="py-12 sm:py-16 lg:py-20 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           ref={ref}
           variants={containerVariants}
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
-          className="space-y-12"
+          className="space-y-8 sm:space-y-12"
         >
           {/* Section Header */}
           <motion.div variants={itemVariants} className="text-center">
-            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4">
               Get In Touch
             </h2>
-            <div className="w-24 h-1 bg-primary mx-auto mb-6"></div>
-            <p className="text-slate max-w-2xl mx-auto">
+            <div className="w-16 sm:w-24 h-1 bg-primary mx-auto mb-4 sm:mb-6"></div>
+            <p className="text-slate max-w-2xl mx-auto text-sm sm:text-base">
               I'm always open to discussing new opportunities, interesting projects, 
               or just having a chat about technology. Feel free to reach out!
             </p>
           </motion.div>
 
-          <div className="grid lg:grid-cols-2 gap-12">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
             {/* Contact Information */}
-            <motion.div variants={itemVariants} className="space-y-8">
+            <motion.div variants={itemVariants} className="space-y-6 sm:space-y-8">
               <Card className="glass-card border-primary/20">
                 <CardHeader>
-                  <CardTitle className="text-white flex items-center">
+                  <CardTitle className="text-white flex items-center text-lg sm:text-xl">
                     <span className="w-3 h-3 bg-primary rounded-full mr-3"></span>
                     Contact Information
                   </CardTitle>
                 </CardHeader>
-                <CardContent className="space-y-6">
+                <CardContent className="space-y-4 sm:space-y-6">
                   {contactInfo.map((contact) => (
                     <motion.a
                       key={contact.label}
@@ -157,14 +157,14 @@ const Contact = () => {
                       target={contact.href.startsWith('http') ? '_blank' : '_self'}
                       rel={contact.href.startsWith('http') ? 'noopener noreferrer' : ''}
                       whileHover={{ scale: 1.02, x: 5 }}
-                      className="flex items-center space-x-4 p-4 rounded-lg bg-navy-light/50 hover:bg-navy-light transition-colors group"
+                      className="flex items-center space-x-3 sm:space-x-4 p-3 sm:p-4 rounded-lg bg-navy-light/50 hover:bg-navy-light transition-colors group"
                     >
-                      <div className={`p-3 rounded-full bg-navy-lighter ${contact.color}`}>
-                        <contact.icon size={20} />
+                      <div className={`p-2 sm:p-3 rounded-full bg-navy-lighter ${contact.color}`}>
+                        <contact.icon size={16} className="sm:w-5 sm:h-5" />
                       </div>
                       <div>
-                        <p className="text-white font-medium">{contact.label}</p>
-                        <p className="text-slate text-sm group-hover:text-primary transition-colors">
+                        <p className="text-white font-medium text-sm sm:text-base">{contact.label}</p>
+                        <p className="text-slate text-xs sm:text-sm group-hover:text-primary transition-colors break-all">
                           {contact.value}
                         </p>
                       </div>
@@ -176,13 +176,13 @@ const Contact = () => {
               {/* Social Links */}
               <Card className="glass-card border-primary/20">
                 <CardHeader>
-                  <CardTitle className="text-white flex items-center">
+                  <CardTitle className="text-white flex items-center text-lg sm:text-xl">
                     <span className="w-3 h-3 bg-accent rounded-full mr-3"></span>
                     Connect With Me
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <div className="flex justify-center space-x-6">
+                  <div className="flex justify-center space-x-4 sm:space-x-6">
                     {socialLinks.map((social) => (
                       <motion.a
                         key={social.label}
@@ -191,10 +191,10 @@ const Contact = () => {
                         rel="noopener noreferrer"
                         whileHover={{ scale: 1.2, y: -5 }}
                         whileTap={{ scale: 0.9 }}
-                        className={`p-4 rounded-full bg-navy-light hover:bg-navy-lighter transition-colors ${social.color}`}
+                        className={`p-3 sm:p-4 rounded-full bg-navy-light hover:bg-navy-lighter transition-colors ${social.color}`}
                         aria-label={social.label}
                       >
-                        <social.icon size={24} />
+                        <social.icon size={20} className="sm:w-6 sm:h-6" />
                       </motion.a>
                     ))}
                   </div>
@@ -206,16 +206,16 @@ const Contact = () => {
             <motion.div variants={itemVariants}>
               <Card className="glass-card border-primary/20">
                 <CardHeader>
-                  <CardTitle className="text-white flex items-center">
+                  <CardTitle className="text-white flex items-center text-lg sm:text-xl">
                     <span className="w-3 h-3 bg-primary rounded-full mr-3"></span>
                     Send Me a Message
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <form onSubmit={handleSubmit} className="space-y-6">
-                    <div className="grid md:grid-cols-2 gap-4">
+                  <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
+                    <div className="grid sm:grid-cols-2 gap-3 sm:gap-4">
                       <div>
-                        <label htmlFor="name" className="block text-secondary text-sm font-medium mb-2">
+                        <label htmlFor="name" className="block text-secondary text-xs sm:text-sm font-medium mb-2">
                           Name *
                         </label>
                         <input
@@ -225,12 +225,12 @@ const Contact = () => {
                           value={formData.name}
                           onChange={handleInputChange}
                           required
-                          className="w-full px-4 py-3 bg-navy-light border border-primary/20 rounded-lg text-white placeholder-slate focus:outline-none focus:border-primary transition-colors"
+                          className="w-full px-3 sm:px-4 py-2 sm:py-3 bg-navy-light border border-primary/20 rounded-lg text-white placeholder-slate focus:outline-none focus:border-primary transition-colors text-sm sm:text-base"
                           placeholder="Your Name"
                         />
                       </div>
                       <div>
-                        <label htmlFor="email" className="block text-secondary text-sm font-medium mb-2">
+                        <label htmlFor="email" className="block text-secondary text-xs sm:text-sm font-medium mb-2">
                           Email *
                         </label>
                         <input
@@ -240,14 +240,14 @@ const Contact = () => {
                           value={formData.email}
                           onChange={handleInputChange}
                           required
-                          className="w-full px-4 py-3 bg-navy-light border border-primary/20 rounded-lg text-white placeholder-slate focus:outline-none focus:border-primary transition-colors"
+                          className="w-full px-3 sm:px-4 py-2 sm:py-3 bg-navy-light border border-primary/20 rounded-lg text-white placeholder-slate focus:outline-none focus:border-primary transition-colors text-sm sm:text-base"
                           placeholder="your.email@example.com"
                         />
                       </div>
                     </div>
 
                     <div>
-                      <label htmlFor="subject" className="block text-secondary text-sm font-medium mb-2">
+                      <label htmlFor="subject" className="block text-secondary text-xs sm:text-sm font-medium mb-2">
                         Subject *
                       </label>
                       <input
@@ -257,13 +257,13 @@ const Contact = () => {
                         value={formData.subject}
                         onChange={handleInputChange}
                         required
-                        className="w-full px-4 py-3 bg-navy-light border border-primary/20 rounded-lg text-white placeholder-slate focus:outline-none focus:border-primary transition-colors"
+                        className="w-full px-3 sm:px-4 py-2 sm:py-3 bg-navy-light border border-primary/20 rounded-lg text-white placeholder-slate focus:outline-none focus:border-primary transition-colors text-sm sm:text-base"
                         placeholder="What's this about?"
                       />
                     </div>
 
                     <div>
-                      <label htmlFor="message" className="block text-secondary text-sm font-medium mb-2">
+                      <label htmlFor="message" className="block text-secondary text-xs sm:text-sm font-medium mb-2">
                         Message *
                       </label>
                       <textarea
@@ -272,14 +272,14 @@ const Contact = () => {
                         value={formData.message}
                         onChange={handleInputChange}
                         required
-                        rows={5}
-                        className="w-full px-4 py-3 bg-navy-light border border-primary/20 rounded-lg text-white placeholder-slate focus:outline-none focus:border-primary transition-colors resize-none"
+                        rows={4}
+                        className="w-full px-3 sm:px-4 py-2 sm:py-3 bg-navy-light border border-primary/20 rounded-lg text-white placeholder-slate focus:outline-none focus:border-primary transition-colors resize-none text-sm sm:text-base"
                         placeholder="Tell me about your project or just say hello!"
                       />
                     </div>
 
                     {submitStatus && (
-                      <div className={`p-4 rounded-lg ${
+                      <div className={`p-3 sm:p-4 rounded-lg text-sm sm:text-base ${
                         submitStatus === 'success' 
                           ? 'bg-green-500/10 border border-green-500/20 text-green-400' 
                           : 'bg-red-500/10 border border-red-500/20 text-red-400'
@@ -293,11 +293,11 @@ const Contact = () => {
                     <Button
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-full glow-on-hover group"
+                      className="w-full glow-on-hover group text-sm sm:text-base"
                     >
                       {isSubmitting ? (
                         <>
-                          <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-navy mr-2"></div>
+                          <div className="animate-spin rounded-full h-3 w-3 sm:h-4 sm:w-4 border-b-2 border-navy mr-2"></div>
                           Sending...
                         </>
                       ) : (

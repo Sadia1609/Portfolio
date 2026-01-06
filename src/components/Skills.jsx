@@ -70,22 +70,22 @@ const Skills = () => {
   }
 
   return (
-    <section id="skills" className="py-20 relative">
+    <section id="skills" className="py-12 sm:py-16 lg:py-20 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           ref={ref}
           variants={containerVariants}
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
-          className="space-y-12"
+          className="space-y-8 sm:space-y-12"
         >
           {/* Section Header */}
           <motion.div variants={itemVariants} className="text-center">
-            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4">
               Skills & Technologies
             </h2>
-            <div className="w-24 h-1 bg-primary mx-auto mb-6"></div>
-            <p className="text-slate max-w-2xl mx-auto">
+            <div className="w-16 sm:w-24 h-1 bg-primary mx-auto mb-4 sm:mb-6"></div>
+            <p className="text-slate max-w-2xl mx-auto text-sm sm:text-base">
               Here are the technologies and tools I work with to bring ideas to life
             </p>
           </motion.div>
@@ -100,13 +100,13 @@ const Skills = () => {
               >
                 <Card className={`glass-card ${getColorClass(category.color)} glow-on-hover`}>
                   <CardHeader>
-                    <CardTitle className={`text-xl font-bold ${getColorClass(category.color)} flex items-center justify-center`}>
+                    <CardTitle className={`text-lg sm:text-xl font-bold ${getColorClass(category.color)} flex items-center justify-center`}>
                       <span className={`w-3 h-3 bg-${category.color} rounded-full mr-3`}></span>
                       {category.title}
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6">
+                    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4 lg:gap-6">
                       {category.skills.map((skill, skillIndex) => (
                         <motion.div
                           key={skill.name}
@@ -115,10 +115,10 @@ const Skills = () => {
                           animate={inView ? "visible" : "hidden"}
                           transition={{ delay: categoryIndex * 0.2 + skillIndex * 0.1 }}
                           whileHover={{ scale: 1.1, y: -5 }}
-                          className="flex flex-col items-center space-y-3 p-4 rounded-lg bg-navy-light/50 hover:bg-navy-light transition-colors group cursor-pointer"
+                          className="flex flex-col items-center space-y-2 sm:space-y-3 p-3 sm:p-4 rounded-lg bg-navy-light/50 hover:bg-navy-light transition-colors group cursor-pointer"
                         >
-                          <skill.icon className={`text-4xl ${getColorClass(category.color)} group-hover:scale-110 transition-transform`} />
-                          <span className="text-white font-medium text-sm text-center">{skill.name}</span>
+                          <skill.icon className={`text-2xl sm:text-3xl lg:text-4xl ${getColorClass(category.color)} group-hover:scale-110 transition-transform`} />
+                          <span className="text-white font-medium text-xs sm:text-sm text-center">{skill.name}</span>
                         </motion.div>
                       ))}
                     </div>
@@ -131,11 +131,11 @@ const Skills = () => {
           {/* Currently Learning */}
           <motion.div variants={itemVariants} className="text-center">
             <Card className="glass-card border-primary/20 max-w-4xl mx-auto">
-              <CardContent className="p-8">
-                <h3 className="text-xl font-bold text-white mb-6">
+              <CardContent className="p-4 sm:p-6 lg:p-8">
+                <h3 className="text-lg sm:text-xl font-bold text-white mb-4 sm:mb-6">
                   Currently Exploring
                 </h3>
-                <div className="flex flex-wrap justify-center gap-4">
+                <div className="flex flex-wrap justify-center gap-2 sm:gap-3 lg:gap-4">
                   {[
                     'Next.js',
                     'Express.js',
@@ -148,7 +148,7 @@ const Skills = () => {
                       animate={inView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
                       transition={{ delay: index * 0.1 + 1 }}
                       whileHover={{ scale: 1.05 }}
-                      className="px-4 py-2 bg-navy-light border border-primary/30 rounded-full text-primary font-medium text-sm hover:bg-primary/10 transition-colors cursor-default"
+                      className="px-3 sm:px-4 py-1 sm:py-2 bg-navy-light border border-primary/30 rounded-full text-primary font-medium text-xs sm:text-sm hover:bg-primary/10 transition-colors cursor-default"
                     >
                       {skill}
                     </motion.span>

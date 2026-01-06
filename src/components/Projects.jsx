@@ -103,28 +103,28 @@ const Projects = () => {
   }
 
   return (
-    <section id="projects" className="py-20 relative">
+    <section id="projects" className="py-12 sm:py-16 lg:py-20 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           ref={ref}
           variants={containerVariants}
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
-          className="space-y-12"
+          className="space-y-8 sm:space-y-12"
         >
           {/* Section Header */}
           <motion.div variants={itemVariants} className="text-center">
-            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4">
               Featured Projects
             </h2>
-            <div className="w-24 h-1 bg-primary mx-auto mb-6"></div>
-            <p className="text-slate max-w-2xl mx-auto">
+            <div className="w-16 sm:w-24 h-1 bg-primary mx-auto mb-4 sm:mb-6"></div>
+            <p className="text-slate max-w-2xl mx-auto text-sm sm:text-base">
               Here are some of my recent projects that showcase my skills and passion for development
             </p>
           </motion.div>
 
           {/* Projects Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {projects.map((project, index) => (
               <motion.div
                 key={project.id}
@@ -138,43 +138,43 @@ const Projects = () => {
                     <img
                       src={project.image}
                       alt={project.name}
-                      className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110"
+                      className="w-full h-40 sm:h-48 object-cover transition-transform duration-300 group-hover:scale-110"
                     />
-                    <div className="absolute inset-0 bg-navy/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center space-x-4">
+                    <div className="absolute inset-0 bg-navy/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center space-x-3 sm:space-x-4">
                       <Button
                         size="sm"
                         variant="outline"
                         onClick={() => window.open(project.liveLink, '_blank')}
-                        className="text-primary border-primary hover:bg-primary hover:text-navy"
+                        className="text-primary border-primary hover:bg-primary hover:text-navy text-xs sm:text-sm"
                       >
-                        <FaExternalLinkAlt className="mr-2" size={14} />
+                        <FaExternalLinkAlt className="mr-1 sm:mr-2" size={12} />
                         Live
                       </Button>
                       <Button
                         size="sm"
                         variant="outline"
                         onClick={() => window.open(project.githubLink, '_blank')}
-                        className="text-primary border-primary hover:bg-primary hover:text-navy"
+                        className="text-primary border-primary hover:bg-primary hover:text-navy text-xs sm:text-sm"
                       >
-                        <FaGithub className="mr-2" size={14} />
+                        <FaGithub className="mr-1 sm:mr-2" size={12} />
                         Code
                       </Button>
                     </div>
                   </div>
 
-                  <CardHeader>
-                    <CardTitle className="text-white group-hover:text-primary transition-colors">
+                  <CardHeader className="p-3 sm:p-4 lg:p-6">
+                    <CardTitle className="text-white group-hover:text-primary transition-colors text-base sm:text-lg">
                       {project.name}
                     </CardTitle>
                   </CardHeader>
 
-                  <CardContent className="space-y-4">
-                    <p className="text-slate text-sm leading-relaxed">
+                  <CardContent className="space-y-3 sm:space-y-4 p-3 sm:p-4 lg:p-6 pt-0">
+                    <p className="text-slate text-xs sm:text-sm leading-relaxed">
                       {project.shortDescription}
                     </p>
 
                     {/* Technologies */}
-                    <div className="flex flex-wrap gap-2">
+                    <div className="flex flex-wrap gap-1 sm:gap-2">
                       {project.technologies.slice(0, 3).map((tech) => (
                         <span
                           key={tech}
@@ -192,7 +192,7 @@ const Projects = () => {
 
                     <Button
                       variant="outline"
-                      className="w-full mt-4"
+                      className="w-full mt-3 sm:mt-4 text-xs sm:text-sm"
                       onClick={() => {
                         setSelectedProject(project)
                         // Ensure modal content starts at top with smooth animation
@@ -224,7 +224,7 @@ const Projects = () => {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.3 }}
-          className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+          className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-2 sm:p-4"
           onClick={() => setSelectedProject(null)}
         >
           <motion.div
@@ -237,19 +237,19 @@ const Projects = () => {
               damping: 30,
               duration: 0.4 
             }}
-            className="glass-card border-primary/20 max-w-4xl w-full max-h-[90vh] overflow-hidden modal-content"
+            className="glass-card border-primary/20 max-w-4xl w-full max-h-[95vh] sm:max-h-[90vh] overflow-hidden modal-content"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="overflow-y-auto max-h-[90vh] scroll-smooth">
-              <div className="p-6 space-y-6">
+            <div className="overflow-y-auto max-h-[95vh] sm:max-h-[90vh] scroll-smooth">
+              <div className="p-4 sm:p-6 space-y-4 sm:space-y-6">
               {/* Header */}
               <div className="flex items-center justify-between">
-                <h3 className="text-2xl font-bold text-white">{selectedProject.name}</h3>
+                <h3 className="text-xl sm:text-2xl font-bold text-white">{selectedProject.name}</h3>
                 <button
                   onClick={() => setSelectedProject(null)}
-                  className="text-slate hover:text-primary transition-colors"
+                  className="text-slate hover:text-primary transition-colors p-1"
                 >
-                  <FaTimes size={20} />
+                  <FaTimes size={18} />
                 </button>
               </div>
 
@@ -257,17 +257,17 @@ const Projects = () => {
               <img
                 src={selectedProject.image}
                 alt={selectedProject.name}
-                className="w-full h-64 object-cover rounded-lg"
+                className="w-full h-48 sm:h-64 object-cover rounded-lg"
               />
 
               {/* Technologies */}
               <div>
-                <h4 className="text-lg font-semibold text-primary mb-3">Technologies Used</h4>
-                <div className="flex flex-wrap gap-2">
+                <h4 className="text-base sm:text-lg font-semibold text-primary mb-2 sm:mb-3">Technologies Used</h4>
+                <div className="flex flex-wrap gap-1 sm:gap-2">
                   {selectedProject.technologies.map((tech) => (
                     <span
                       key={tech}
-                      className="px-3 py-1 bg-primary/10 text-primary text-sm rounded border border-primary/20"
+                      className="px-2 sm:px-3 py-1 bg-primary/10 text-primary text-xs sm:text-sm rounded border border-primary/20"
                     >
                       {tech}
                     </span>
@@ -277,16 +277,16 @@ const Projects = () => {
 
               {/* Description */}
               <div>
-                <h4 className="text-lg font-semibold text-primary mb-3">Project Description</h4>
-                <p className="text-slate leading-relaxed">{selectedProject.fullDescription}</p>
+                <h4 className="text-base sm:text-lg font-semibold text-primary mb-2 sm:mb-3">Project Description</h4>
+                <p className="text-slate leading-relaxed text-sm sm:text-base">{selectedProject.fullDescription}</p>
               </div>
 
               {/* Challenges */}
               <div>
-                <h4 className="text-lg font-semibold text-accent mb-3">Challenges Faced</h4>
-                <ul className="space-y-2">
+                <h4 className="text-base sm:text-lg font-semibold text-accent mb-2 sm:mb-3">Challenges Faced</h4>
+                <ul className="space-y-1 sm:space-y-2">
                   {selectedProject.challenges.map((challenge, index) => (
-                    <li key={index} className="text-slate flex items-start">
+                    <li key={index} className="text-slate flex items-start text-sm sm:text-base">
                       <span className="text-accent mr-2 mt-1">•</span>
                       {challenge}
                     </li>
@@ -296,10 +296,10 @@ const Projects = () => {
 
               {/* Future Improvements */}
               <div>
-                <h4 className="text-lg font-semibold text-secondary mb-3">Future Improvements</h4>
-                <ul className="space-y-2">
+                <h4 className="text-base sm:text-lg font-semibold text-secondary mb-2 sm:mb-3">Future Improvements</h4>
+                <ul className="space-y-1 sm:space-y-2">
                   {selectedProject.improvements.map((improvement, index) => (
-                    <li key={index} className="text-slate flex items-start">
+                    <li key={index} className="text-slate flex items-start text-sm sm:text-base">
                       <span className="text-secondary mr-2 mt-1">•</span>
                       {improvement}
                     </li>
@@ -308,10 +308,10 @@ const Projects = () => {
               </div>
 
               {/* Links */}
-              <div className="flex gap-4 pt-4">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2 sm:pt-4">
                 <Button
                   onClick={() => window.open(selectedProject.liveLink, '_blank')}
-                  className="flex-1"
+                  className="flex-1 text-sm sm:text-base"
                 >
                   <FaExternalLinkAlt className="mr-2" />
                   View Live Project
@@ -319,7 +319,7 @@ const Projects = () => {
                 <Button
                   variant="outline"
                   onClick={() => window.open(selectedProject.githubLink, '_blank')}
-                  className="flex-1"
+                  className="flex-1 text-sm sm:text-base"
                 >
                   <FaGithub className="mr-2" />
                   View Source Code

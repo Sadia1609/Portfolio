@@ -21,17 +21,17 @@ const Footer = () => {
   ]
 
   return (
-    <footer className="py-12 border-t border-primary/20 bg-navy-light/50">
+    <footer className="py-8 sm:py-12 border-t border-primary/20 bg-navy-light/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center space-y-6"
+          className="text-center space-y-4 sm:space-y-6"
         >
           {/* Social Links */}
-          <div className="flex justify-center space-x-6">
+          <div className="flex justify-center space-x-4 sm:space-x-6">
             {socialLinks.map((social, index) => (
               <motion.a
                 key={social.label}
@@ -43,15 +43,15 @@ const Footer = () => {
                 className="text-slate hover:text-primary transition-colors duration-300"
                 aria-label={social.label}
               >
-                <social.icon size={20} />
+                <social.icon size={18} className="sm:w-5 sm:h-5" />
               </motion.a>
             ))}
           </div>
 
           {/* Copyright */}
-          <div className="space-y-2">
-            <p className="text-slate text-sm flex items-center justify-center">
-              Built with <FaHeart className="text-accent mx-2" size={14} /> by Sadia Rahman
+          <div className="space-y-1 sm:space-y-2">
+            <p className="text-slate text-xs sm:text-sm flex items-center justify-center">
+              Built with <FaHeart className="text-accent mx-1 sm:mx-2" size={12} /> by Sadia Rahman
             </p>
             <p className="text-slate text-xs">
               © {new Date().getFullYear()} Sadia Rahman. All rights reserved.
@@ -59,7 +59,7 @@ const Footer = () => {
           </div>
 
           {/* Tech Stack */}
-          <div className="pt-4 border-t border-primary/10">
+          <div className="pt-3 sm:pt-4 border-t border-primary/10">
             <p className="text-slate text-xs">
               Built with React, Tailwind CSS, Framer Motion & lots of ☕
             </p>
