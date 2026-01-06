@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
-import { FaEnvelope, FaPhone, FaWhatsapp, FaGithub, FaLinkedin, FaPaperPlane } from 'react-icons/fa'
+import { FaEnvelope, FaPhone, FaGithub, FaLinkedin, FaPaperPlane } from 'react-icons/fa'
 import emailjs from '@emailjs/browser'
 
 const Contact = () => {
@@ -32,17 +32,11 @@ const Contact = () => {
     {
       icon: FaPhone,
       label: "Phone",
-      value: "+880 1234567890",
+      value: "+880 1700890040",
       href: "tel:+8801234567890",
       color: "text-accent"
     },
-    {
-      icon: FaWhatsapp,
-      label: "WhatsApp",
-      value: "+880 1234567890",
-      href: "https://wa.me/8801234567890",
-      color: "text-green-400"
-    }
+   
   ]
 
   const socialLinks = [
@@ -80,7 +74,7 @@ const Contact = () => {
 
     try {
       // Initialize EmailJS (you'll need to set up your EmailJS account)
-      const result = await emailjs.send(
+      await emailjs.send(
         'YOUR_SERVICE_ID', // Replace with your EmailJS service ID
         'YOUR_TEMPLATE_ID', // Replace with your EmailJS template ID
         {
@@ -136,7 +130,6 @@ const Contact = () => {
           {/* Section Header */}
           <motion.div variants={itemVariants} className="text-center">
             <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-              <span className="text-primary font-mono text-lg mr-2">04.</span>
               Get In Touch
             </h2>
             <div className="w-24 h-1 bg-primary mx-auto mb-6"></div>
@@ -157,7 +150,7 @@ const Contact = () => {
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-6">
-                  {contactInfo.map((contact, index) => (
+                  {contactInfo.map((contact) => (
                     <motion.a
                       key={contact.label}
                       href={contact.href}
@@ -190,7 +183,7 @@ const Contact = () => {
                 </CardHeader>
                 <CardContent>
                   <div className="flex justify-center space-x-6">
-                    {socialLinks.map((social, index) => (
+                    {socialLinks.map((social) => (
                       <motion.a
                         key={social.label}
                         href={social.href}

@@ -38,6 +38,7 @@ module.exports = {
       fontFamily: {
         mono: ["SF Mono", "Monaco", "Inconsolata", "Roboto Mono", "monospace"],
         sans: ["Calibre", "Inter", "San Francisco", "SF Pro Text", "-apple-system", "system-ui", "sans-serif"],
+        signature: ["Great Vibes", "Dancing Script", "cursive"],
       },
       borderRadius: {
         DEFAULT: "0.375rem",

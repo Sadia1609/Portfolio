@@ -41,7 +41,6 @@ const About = () => {
           {/* Section Header */}
           <motion.div variants={itemVariants} className="text-center">
             <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-              <span className="text-primary font-mono text-lg mr-2">01.</span>
               About Me
             </h2>
             <div className="w-24 h-1 bg-primary mx-auto"></div>
@@ -57,26 +56,19 @@ const About = () => {
                       Hello! I'm <span className="text-primary font-semibold">Sadia Rahman</span>, 
                       a passionate Frontend Developer who loves creating digital experiences that 
                       make a difference. My journey into programming started during my university 
-                      years, and I've been fascinated by the endless possibilities of web development ever since.
+                      years at <span className="text-primary font-semibold">United International University</span>.
                     </p>
                     
                     <p>
-                      I graduated with a degree in <span className="text-primary">Computer Science and Engineering</span> from 
-                      <span className="text-primary font-semibold"> United International University</span>. 
-                      Throughout my academic journey, I discovered my passion for frontend development 
-                      and user experience design.
-                    </p>
-
-                    <p>
                       I enjoy building applications that are not only functional but also beautiful 
                       and accessible. I believe in writing clean, maintainable code and staying 
-                      up-to-date with the latest technologies and best practices.
+                      up-to-date with the latest technologies.
                     </p>
 
                     <p>
-                      When I'm not coding, you can find me exploring new technologies, reading tech blogs, 
-                      or working on personal projects. I also enjoy photography and love capturing 
-                      beautiful moments in nature.
+                      When I'm not coding, you can find me spending quality time with my pets, 
+                      getting lost in a good book, or experimenting with new recipes in the kitchen. 
+                      I also love exploring new technologies and working on personal projects.
                     </p>
                   </div>
                 </CardContent>
@@ -98,7 +90,7 @@ const About = () => {
                         Bachelor of Science in Computer Science & Engineering
                       </h4>
                       <p className="text-slate-light">United International University</p>
-                      <p className="text-slate text-sm">2020 - 2024</p>
+                      <p className="text-slate text-sm">2019 - 2023</p>
                     </div>
                   </div>
                 </CardContent>
@@ -115,9 +107,9 @@ const About = () => {
                     {[
                       'Web Development',
                       'UI/UX Design',
-                      'Photography',
-                      'Reading',
-                      'Problem Solving',
+                      'Reading Books',
+                      'Cooking',
+                      'Pet Care',
                       'Learning New Tech'
                     ].map((interest, index) => (
                       <motion.div
@@ -134,21 +126,6 @@ const About = () => {
                   </div>
                 </CardContent>
               </Card>
-
-              {/* Fun Fact */}
-              <motion.div
-                whileHover={{ scale: 1.02 }}
-                className="glass-card border-accent/20 p-6 rounded-lg"
-              >
-                <h3 className="text-lg font-bold text-white mb-2 flex items-center">
-                  <span className="text-accent mr-2">💡</span>
-                  Fun Fact
-                </h3>
-                <p className="text-slate">
-                  I love the problem-solving aspect of programming - there's nothing quite like 
-                  the satisfaction of debugging a complex issue or optimizing code for better performance!
-                </p>
-              </motion.div>
             </motion.div>
           </div>
         </motion.div>

@@ -15,65 +15,69 @@ const Projects = () => {
   const projects = [
     {
       id: 1,
-      name: "E-Commerce Platform",
-      image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop",
-      shortDescription: "A modern e-commerce platform with React and Node.js",
-      technologies: ["React", "Node.js", "MongoDB", "Express", "Tailwind CSS"],
-      liveLink: "https://example-ecommerce.com",
-      githubLink: "https://github.com/Sadia1609/ecommerce-platform",
-      fullDescription: "A comprehensive e-commerce platform built with modern web technologies. Features include user authentication, product catalog, shopping cart, payment integration, and admin dashboard.",
+      name: "PawMart",
+      image: "https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=600&h=400&fit=crop",
+      shortDescription: "A full-stack pet adoption & supply marketplace with CRUD operations and secure authentication",
+      technologies: ["React", "Node.js", "Express.js", "MongoDB", "Firebase Auth", "Tailwind CSS"],
+      liveLink: "https://pet-care-8ba14.web.app/",
+      githubLink: "https://github.com/Sadia1609/paw-mart",
+      fullDescription: "PawMart is a community-driven platform built for pet owners, breeders, and pet shops to list pets for adoption and sell pet-related products. Features include secure authentication, full CRUD operations, order management with PDF reports, dark/light mode toggle, and 100% responsive design.",
       challenges: [
-        "Implementing secure payment processing with Stripe API",
-        "Optimizing database queries for large product catalogs",
-        "Creating responsive design for all device sizes"
+        "Building full-stack application with React frontend and Node.js backend",
+        "Implementing secure Firebase authentication with Google Sign-in",
+        "Creating CRUD operations for pet listings and order management",
+        "Generating PDF reports using jsPDF and AutoTable for order history"
       ],
       improvements: [
-        "Add real-time inventory management",
-        "Implement advanced search and filtering",
-        "Add multi-language support",
-        "Integrate AI-powered product recommendations"
+        "Add real-time chat between buyers and sellers",
+        "Implement advanced search with location-based filtering",
+        "Add payment gateway integration for secure transactions",
+        "Create admin dashboard for platform management"
       ]
     },
     {
       id: 2,
-      name: "Task Management App",
-      image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=600&h=400&fit=crop",
-      shortDescription: "A collaborative task management application",
-      technologies: ["React", "TypeScript", "Firebase", "Material-UI"],
-      liveLink: "https://example-taskmanager.com",
-      githubLink: "https://github.com/Sadia1609/task-manager",
-      fullDescription: "A collaborative task management application that helps teams organize and track their work efficiently. Features include project creation, task assignment, progress tracking, and team collaboration tools.",
+      name: "Hero Apps",
+      image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&h=400&fit=crop",
+      shortDescription: "A responsive app marketplace web application with dynamic app listing and installation features",
+      technologies: ["React", "React Router", "Tailwind CSS", "JavaScript", "Recharts", "LocalStorage API"],
+      liveLink: "https://hero-apps-react-js.netlify.app/",
+      githubLink: "https://github.com/Sadia1609/hero-apps",
+      fullDescription: "Hero Apps is a responsive app marketplace web application where users can explore popular apps, view detailed ratings and reviews, install apps using localStorage, and manage their installed applications with a smooth user experience.",
       challenges: [
-        "Implementing real-time collaboration features",
-        "Managing complex state with multiple user interactions",
-        "Creating intuitive drag-and-drop functionality"
+        "Implementing dynamic app listing with live search functionality",
+        "Creating app installation & uninstall using localStorage",
+        "Building responsive design for all devices with smooth user experience",
+        "Integrating Recharts for review analytics and data visualization"
       ],
       improvements: [
-        "Add calendar integration",
-        "Implement time tracking features",
-        "Add mobile app version",
-        "Integrate with popular productivity tools"
+        "Add user authentication and personalized recommendations",
+        "Implement real-time app updates and notifications",
+        "Add app categories and advanced filtering options",
+        "Integrate payment system for premium apps"
       ]
     },
     {
       id: 3,
-      name: "Weather Dashboard",
-      image: "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=600&h=400&fit=crop",
-      shortDescription: "A beautiful weather dashboard with forecasts",
-      technologies: ["React", "JavaScript", "OpenWeather API", "Chart.js"],
-      liveLink: "https://example-weather.com",
-      githubLink: "https://github.com/Sadia1609/weather-dashboard",
-      fullDescription: "A comprehensive weather dashboard that provides current weather conditions, 7-day forecasts, and interactive charts. Features location-based weather, multiple city tracking, and beautiful data visualizations.",
+      name: "Winter Pet Care",
+      image: 
+      "https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=600&h=400&fit=crop&crop=center",
+      shortDescription: "A modern web application helping pet owners care for their pets during winter seasons",
+      technologies: ["React", "Vite", "Tailwind CSS", "DaisyUI", "Framer Motion", "Swiper.js"],
+      liveLink: "https://a9winterpetcare.netlify.app/",
+      githubLink: "https://github.com/Sadia1609/A9-winter-petcare",
+      fullDescription: "Winter Pet Care is designed to support pet owners with essential resources during the winter months. The platform provides expert advice, tips, and services including grooming, boarding, medical checkups, and emergency support to ensure pets stay warm, safe, and healthy in cold weather.",
       challenges: [
-        "Handling API rate limits and error states",
-        "Creating responsive charts and visualizations",
-        "Implementing geolocation features"
+        "Creating seasonal-specific content and tips for pet care",
+        "Implementing smooth animations with Framer Motion",
+        "Building interactive sliders using Swiper.js for services showcase",
+        "Designing responsive UI with Tailwind CSS and DaisyUI"
       ],
       improvements: [
-        "Add weather alerts and notifications",
-        "Implement historical weather data",
-        "Add weather maps integration",
-        "Create weather-based activity suggestions"
+        "Add real-time weather integration for location-based tips",
+        "Implement appointment booking system for consultations",
+        "Add user accounts for personalized pet care plans",
+        "Create mobile app version for better accessibility"
       ]
     }
   ]
@@ -111,7 +115,6 @@ const Projects = () => {
           {/* Section Header */}
           <motion.div variants={itemVariants} className="text-center">
             <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-              <span className="text-primary font-mono text-lg mr-2">03.</span>
               Featured Projects
             </h2>
             <div className="w-24 h-1 bg-primary mx-auto mb-6"></div>
@@ -190,7 +193,19 @@ const Projects = () => {
                     <Button
                       variant="outline"
                       className="w-full mt-4"
-                      onClick={() => setSelectedProject(project)}
+                      onClick={() => {
+                        setSelectedProject(project)
+                        // Ensure modal content starts at top with smooth animation
+                        setTimeout(() => {
+                          const scrollContainer = document.querySelector('.modal-content .overflow-y-auto')
+                          if (scrollContainer) {
+                            scrollContainer.scrollTo({ 
+                              top: 0, 
+                              behavior: 'smooth' 
+                            })
+                          }
+                        }, 200)
+                      }}
                     >
                       View Details
                     </Button>
@@ -208,17 +223,25 @@ const Projects = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
+          transition={{ duration: 0.3 }}
           className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
           onClick={() => setSelectedProject(null)}
         >
           <motion.div
-            initial={{ scale: 0.8, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            exit={{ scale: 0.8, opacity: 0 }}
-            className="glass-card border-primary/20 max-w-4xl w-full max-h-[90vh] overflow-y-auto"
+            initial={{ scale: 0.8, opacity: 0, y: 50 }}
+            animate={{ scale: 1, opacity: 1, y: 0 }}
+            exit={{ scale: 0.8, opacity: 0, y: 50 }}
+            transition={{ 
+              type: "spring", 
+              stiffness: 300, 
+              damping: 30,
+              duration: 0.4 
+            }}
+            className="glass-card border-primary/20 max-w-4xl w-full max-h-[90vh] overflow-hidden modal-content"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="p-6 space-y-6">
+            <div className="overflow-y-auto max-h-[90vh] scroll-smooth">
+              <div className="p-6 space-y-6">
               {/* Header */}
               <div className="flex items-center justify-between">
                 <h3 className="text-2xl font-bold text-white">{selectedProject.name}</h3>
@@ -301,6 +324,7 @@ const Projects = () => {
                   <FaGithub className="mr-2" />
                   View Source Code
                 </Button>
+              </div>
               </div>
             </div>
           </motion.div>

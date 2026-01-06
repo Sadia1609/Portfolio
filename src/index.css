@@ -92,8 +92,27 @@
   border: 1px solid rgba(100, 255, 218, 0.2);
 }
 
-/* Smooth scrolling */
-html {
+/* Custom scrollbar for modal */
+.modal-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.modal-content::-webkit-scrollbar-track {
+  background: rgba(17, 34, 64, 0.3);
+  border-radius: 3px;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+  background: #64ffda;
+  border-radius: 3px;
+}
+
+.modal-content::-webkit-scrollbar-thumb:hover {
+  background: #4fd1c7;
+}
+
+/* Smooth scrolling for modal content */
+.modal-content {
   scroll-behavior: smooth;
 }
 
@@ -159,4 +178,15 @@ html {
 
 .parallax-base {
   transform: translateZ(0);
+}
+/* Smooth modal scrolling */
+.modal-content .overflow-y-auto {
+  scroll-behavior: smooth;
+  scroll-padding-top: 20px;
+}
+
+/* Modal backdrop enhancement */
+.modal-content {
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
 }

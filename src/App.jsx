@@ -13,47 +13,6 @@ function App() {
   // Initialize smooth scrolling
   useLenis()
 
-  // Add cursor effect
-  useEffect(() => {
-    const cursor = document.createElement('div')
-    cursor.className = 'fixed w-4 h-4 bg-primary/30 rounded-full pointer-events-none z-50 mix-blend-difference transition-transform duration-150 ease-out'
-    cursor.style.transform = 'translate(-50%, -50%)'
-    document.body.appendChild(cursor)
-
-    const moveCursor = (e) => {
-      cursor.style.left = e.clientX + 'px'
-      cursor.style.top = e.clientY + 'px'
-    }
-
-    const scaleCursor = () => {
-      cursor.style.transform = 'translate(-50%, -50%) scale(2)'
-    }
-
-    const resetCursor = () => {
-      cursor.style.transform = 'translate(-50%, -50%) scale(1)'
-    }
-
-    document.addEventListener('mousemove', moveCursor)
-    
-    // Add hover effects to interactive elements
-    const interactiveElements = document.querySelectorAll('button, a, [role="button"]')
-    interactiveElements.forEach(el => {
-      el.addEventListener('mouseenter', scaleCursor)
-      el.addEventListener('mouseleave', resetCursor)
-    })
-
-    return () => {
-      document.removeEventListener('mousemove', moveCursor)
-      interactiveElements.forEach(el => {
-        el.removeEventListener('mouseenter', scaleCursor)
-        el.removeEventListener('mouseleave', resetCursor)
-      })
-      if (cursor.parentNode) {
-        cursor.parentNode.removeChild(cursor)
-      }
-    }
-  }, [])
-
   return (
     <div className="min-h-screen bg-navy text-secondary overflow-x-hidden">
       {/* Background Pattern */}

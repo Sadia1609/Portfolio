@@ -30,7 +30,7 @@ const Hero = () => {
   ]
 
   return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
+    <section className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
       {/* Background Elements */}
       <div className="absolute inset-0">
         <motion.div
@@ -166,14 +166,53 @@ const Hero = () => {
               {/* Profile image container */}
               <div className="absolute inset-4 rounded-full overflow-hidden glass-card group">
                 <motion.div
-                  whileHover={{ scale: 1.1 }}
+                  whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.3 }}
-                  className="w-full h-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center"
+                  className="w-full h-full relative"
                 >
-                  {/* Placeholder for profile image */}
-                  <div className="w-full h-full bg-navy-light rounded-full flex items-center justify-center">
-                    <span className="text-6xl text-primary font-bold">SR</span>
+                  {/* Beautiful Profile Design */}
+                  <div className="w-full h-full bg-gradient-to-br from-primary/20 via-navy-light to-accent/20 rounded-full flex items-center justify-center relative">
+                    {/* Profile Content */}
+                    <div className="text-center z-10">
+                      <motion.div 
+                        animate={{ 
+                          boxShadow: [
+                            "0 0 20px rgba(100, 255, 218, 0.3)",
+                            "0 0 40px rgba(100, 255, 218, 0.5)",
+                            "0 0 20px rgba(100, 255, 218, 0.3)"
+                          ]
+                        }}
+                        transition={{ duration: 2, repeat: Infinity }}
+                        className="w-32 h-32 bg-gradient-to-br from-primary/30 to-accent/30 rounded-full flex items-center justify-center mx-auto mb-6 border-2 border-primary/40"
+                      >
+                        <span className="text-6xl text-primary font-bold">S</span>
+                      </motion.div>
+                      <motion.p 
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 1 }}
+                        className="text-primary font-signature text-3xl mb-2"
+                      >
+                        Sadia Rahman
+                      </motion.p>
+                      <motion.p 
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 1.2 }}
+                        className="text-secondary text-sm font-medium"
+                      >
+                        Frontend Developer
+                      </motion.p>
+                    </div>
+                    
+                    {/* Background Pattern */}
+                    <div className="absolute inset-0 opacity-10">
+                      <div className="w-full h-full bg-gradient-to-r from-transparent via-primary/20 to-transparent rounded-full"></div>
+                    </div>
                   </div>
+                  
+                  {/* Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-navy/20 to-transparent rounded-full"></div>
                 </motion.div>
               </div>
 
@@ -187,6 +226,18 @@ const Hero = () => {
                 animate={{ y: [10, -10, 10] }}
                 transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
                 className="absolute -bottom-4 -left-4 w-6 h-6 bg-accent/20 rounded-full blur-sm"
+              />
+              
+              {/* Additional decorative elements */}
+              <motion.div
+                animate={{ rotate: [0, 360] }}
+                transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+                className="absolute top-8 right-8 w-4 h-4 border border-primary/30 rounded-full"
+              />
+              <motion.div
+                animate={{ rotate: [360, 0] }}
+                transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
+                className="absolute bottom-8 left-8 w-3 h-3 border border-accent/30 rounded-full"
               />
             </div>
           </motion.div>

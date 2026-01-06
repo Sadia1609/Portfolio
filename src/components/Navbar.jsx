@@ -38,7 +38,7 @@ const Navbar = () => {
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        scrolled ? 'glass py-2' : 'bg-transparent py-4'
+        scrolled ? 'glass py-3' : 'bg-navy/80 backdrop-blur-md py-4'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -48,9 +48,9 @@ const Navbar = () => {
             whileHover={{ scale: 1.05 }}
             className="flex items-center"
           >
-            <div className="w-10 h-10 border-2 border-primary rounded flex items-center justify-center">
-              <span className="text-primary font-bold text-lg">SR</span>
-            </div>
+            <span className="text-primary font-signature text-3xl font-semibold tracking-wide">
+              Sadia
+            </span>
           </motion.div>
 
           {/* Desktop Menu */}
@@ -62,10 +62,10 @@ const Navbar = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 + 0.3 }}
                 onClick={() => scrollToSection(item.href)}
-                className="text-secondary hover:text-primary transition-colors duration-300 font-mono text-sm"
+                className="text-secondary hover:text-primary transition-colors duration-300 font-medium text-sm relative group"
               >
-                <span className="text-primary mr-1">0{index + 1}.</span>
                 {item.name}
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
               </motion.button>
             ))}
             <motion.div
@@ -109,9 +109,8 @@ const Navbar = () => {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: index * 0.1 }}
                 onClick={() => scrollToSection(item.href)}
-                className="block w-full text-left py-2 text-secondary hover:text-primary transition-colors font-mono text-sm"
+                className="block w-full text-left py-3 text-secondary hover:text-primary transition-colors font-medium text-sm"
               >
-                <span className="text-primary mr-1">0{index + 1}.</span>
                 {item.name}
               </motion.button>
             ))}
