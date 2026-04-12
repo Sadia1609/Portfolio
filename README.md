@@ -2,6 +2,8 @@
 
 A modern, responsive portfolio website built with React, Vite, Tailwind CSS, and Framer Motion. Features smooth scrolling, glass morphism effects, and beautiful animations.
 
+## Live link: https://srahman-myportfolio.netlify.app/
+
 ## 🚀 Features
 
 - **Modern Design**: Dark theme with cyan and coral accents
