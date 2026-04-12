@@ -175,7 +175,7 @@ const Projects = () => {
         "Developing 4 comprehensive reports modules with pagination and filtering",
         "Implementing secure JWT-based password reset system with 1-hour token expiration",
         "Integrating Stripe payment gateway for premium course purchases",
-        "Coordinating with 4 team members on Git workflow and resolving merge conflicts",
+        "Coordinating with 3 team members on Git workflow and resolving merge conflicts",
         "Ensuring consistent UI/UX across all modules developed by different team members",
       ],
 
