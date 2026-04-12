@@ -1,1 +1,31 @@
-node_modules
+# Logs
+ocalction.lduroenv.p.local
+.v.test.local
+.en.developmentocal
+.envv.l
+.enbles
+.envriaonment vanvir?
+
+# E
+*.sw
+*.sln*.njsproj
+.ntvs*o
+*_Store
+*.sua
+.DSson
+.ideextensions.jode/!.vscscode/*
+ files
+.vries anditor directo Edcal
+
+#*.lost-ssr
+
+dist
+dimodules
+
+node_debug.log*na-*
+lerebug.logm-dg*
+pnp-error.lo
+yarnog*-debug.l
+yarnug.log*-debnpm.log
+logs
+*
