@@ -131,7 +131,7 @@ const Projects = () => {
     },
     {
       id: 3,
-      name: "Hero Apps",
+      name: "HERO.IO",
       image: "apps.png",
       shortDescription:
         "A responsive app marketplace web application with dynamic app listing and installation features",
