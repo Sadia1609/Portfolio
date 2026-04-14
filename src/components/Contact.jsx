@@ -1,25 +1,31 @@
-import { useState } from 'react'
-import { motion } from 'framer-motion'
-import { useInView } from 'react-intersection-observer'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { Button } from '@/components/ui/button'
-import { FaEnvelope, FaPhone, FaGithub, FaLinkedin, FaPaperPlane } from 'react-icons/fa'
-import emailjs from '@emailjs/browser'
+import { useState } from "react";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import {
+  FaEnvelope,
+  FaPhone,
+  FaGithub,
+  FaLinkedin,
+  FaPaperPlane,
+} from "react-icons/fa";
+import emailjs from "@emailjs/browser";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
-  })
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [submitStatus, setSubmitStatus] = useState(null)
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState(null);
 
   const [ref, inView] = useInView({
     triggerOnce: true,
-    threshold: 0.1
-  })
+    threshold: 0.1,
+  });
 
   const contactInfo = [
     {
@@ -27,75 +33,96 @@ const Contact = () => {
       label: "Email",
       value: "sadia.rahman160920@gmail.com",
       href: "mailto:sadia.rahman160920@gmail.com",
-      color: "text-primary"
+      color: "text-primary",
     },
     {
       icon: FaPhone,
       label: "Phone",
       value: "+880 1700890040",
-      href: "tel:+8801234567890",
-      color: "text-accent"
+      href: "tel:+8801700890040",
+      color: "text-accent",
     },
-   
-  ]
+  ];
 
   const socialLinks = [
     {
       icon: FaGithub,
       label: "GitHub",
       href: "https://github.com/Sadia1609",
-      color: "text-slate hover:text-white"
+      color: "text-slate hover:text-white",
     },
     {
       icon: FaLinkedin,
       label: "LinkedIn",
       href: "https://www.linkedin.com/in/sadiarahman1609/",
-      color: "text-slate hover:text-blue-400"
+      color: "text-slate hover:text-blue-400",
     },
     {
       icon: FaEnvelope,
       label: "Email",
       href: "mailto:sadia.rahman160920@gmail.com",
-      color: "text-slate hover:text-primary"
-    }
-  ]
+      color: "text-slate hover:text-primary",
+    },
+  ];
 
   const handleInputChange = (e) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
-    })
-  }
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const EMAILJS_CONFIG = {
+    SERVICE_ID: "service_eoehygs",
+    TEMPLATE_ID: "template_hmmub6s",
+    PUBLIC_KEY: "3a8P-JSjLJ6SQfDSm",
+  };
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
-    setIsSubmitting(true)
-    setSubmitStatus(null)
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus(null);
+
+    console.log("Sending email with:", {
+      serviceId: EMAILJS_CONFIG.SERVICE_ID,
+      templateId: EMAILJS_CONFIG.TEMPLATE_ID,
+      publicKey: EMAILJS_CONFIG.PUBLIC_KEY,
+      formData: formData,
+    });
 
     try {
-      // Initialize EmailJS (you'll need to set up your EmailJS account)
-      await emailjs.send(
-        'YOUR_SERVICE_ID', // Replace with your EmailJS service ID
-        'YOUR_TEMPLATE_ID', // Replace with your EmailJS template ID
-        {
-          from_name: formData.name,
-          from_email: formData.email,
-          subject: formData.subject,
-          message: formData.message,
-          to_email: 'sadia.rahman160920@gmail.com'
-        },
-        'YOUR_PUBLIC_KEY' // Replace with your EmailJS public key
-      )
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        subject: formData.subject,
+        message: formData.message,
+        to_email: "sadia.rahman160920@gmail.com",
+      };
 
-      setSubmitStatus('success')
-      setFormData({ name: '', email: '', subject: '', message: '' })
+      const response = await emailjs.send(
+        EMAILJS_CONFIG.SERVICE_ID,
+        EMAILJS_CONFIG.TEMPLATE_ID,
+        templateParams,
+        EMAILJS_CONFIG.PUBLIC_KEY,
+      );
+
+      console.log("Email sent successfully:", response);
+      setSubmitStatus("success");
+      setFormData({ name: "", email: "", subject: "", message: "" });
+
+      setTimeout(() => setSubmitStatus(null), 5000);
     } catch (error) {
-      console.error('Email send error:', error)
-      setSubmitStatus('error')
+      console.error("Email send error details:", {
+        message: error.message,
+        text: error.text,
+        status: error.status,
+      });
+      setSubmitStatus("error");
+      setTimeout(() => setSubmitStatus(null), 5000);
     } finally {
-      setIsSubmitting(false)
+      setIsSubmitting(false);
     }
-  }
+  };
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -103,19 +130,19 @@ const Contact = () => {
       opacity: 1,
       transition: {
         staggerChildren: 0.2,
-        delayChildren: 0.1
-      }
-    }
-  }
+        delayChildren: 0.1,
+      },
+    },
+  };
 
   const itemVariants = {
     hidden: { opacity: 0, y: 30 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6, ease: "easeOut" }
-    }
-  }
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
+  };
 
   return (
     <section id="contact" className="py-12 sm:py-16 lg:py-20 relative">
@@ -134,14 +161,18 @@ const Contact = () => {
             </h2>
             <div className="w-16 sm:w-24 h-1 bg-primary mx-auto mb-4 sm:mb-6"></div>
             <p className="text-slate max-w-2xl mx-auto text-sm sm:text-base">
-              I'm always open to discussing new opportunities, interesting projects, 
-              or just having a chat about technology. Feel free to reach out!
+              I'm always open to discussing new opportunities, interesting
+              projects, or just having a chat about technology. Feel free to
+              reach out!
             </p>
           </motion.div>
 
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
             {/* Contact Information */}
-            <motion.div variants={itemVariants} className="space-y-6 sm:space-y-8">
+            <motion.div
+              variants={itemVariants}
+              className="space-y-6 sm:space-y-8"
+            >
               <Card className="glass-card border-primary/20">
                 <CardHeader>
                   <CardTitle className="text-white flex items-center text-lg sm:text-xl">
@@ -154,16 +185,26 @@ const Contact = () => {
                     <motion.a
                       key={contact.label}
                       href={contact.href}
-                      target={contact.href.startsWith('http') ? '_blank' : '_self'}
-                      rel={contact.href.startsWith('http') ? 'noopener noreferrer' : ''}
+                      target={
+                        contact.href.startsWith("http") ? "_blank" : "_self"
+                      }
+                      rel={
+                        contact.href.startsWith("http")
+                          ? "noopener noreferrer"
+                          : ""
+                      }
                       whileHover={{ scale: 1.02, x: 5 }}
                       className="flex items-center space-x-3 sm:space-x-4 p-3 sm:p-4 rounded-lg bg-navy-light/50 hover:bg-navy-light transition-colors group"
                     >
-                      <div className={`p-2 sm:p-3 rounded-full bg-navy-lighter ${contact.color}`}>
+                      <div
+                        className={`p-2 sm:p-3 rounded-full bg-navy-lighter ${contact.color}`}
+                      >
                         <contact.icon size={16} className="sm:w-5 sm:h-5" />
                       </div>
                       <div>
-                        <p className="text-white font-medium text-sm sm:text-base">{contact.label}</p>
+                        <p className="text-white font-medium text-sm sm:text-base">
+                          {contact.label}
+                        </p>
                         <p className="text-slate text-xs sm:text-sm group-hover:text-primary transition-colors break-all">
                           {contact.value}
                         </p>
@@ -212,10 +253,16 @@ const Contact = () => {
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
+                  <form
+                    onSubmit={handleSubmit}
+                    className="space-y-4 sm:space-y-6"
+                  >
                     <div className="grid sm:grid-cols-2 gap-3 sm:gap-4">
                       <div>
-                        <label htmlFor="name" className="block text-secondary text-xs sm:text-sm font-medium mb-2">
+                        <label
+                          htmlFor="name"
+                          className="block text-secondary text-xs sm:text-sm font-medium mb-2"
+                        >
                           Name *
                         </label>
                         <input
@@ -230,7 +277,10 @@ const Contact = () => {
                         />
                       </div>
                       <div>
-                        <label htmlFor="email" className="block text-secondary text-xs sm:text-sm font-medium mb-2">
+                        <label
+                          htmlFor="email"
+                          className="block text-secondary text-xs sm:text-sm font-medium mb-2"
+                        >
                           Email *
                         </label>
                         <input
@@ -247,7 +297,10 @@ const Contact = () => {
                     </div>
 
                     <div>
-                      <label htmlFor="subject" className="block text-secondary text-xs sm:text-sm font-medium mb-2">
+                      <label
+                        htmlFor="subject"
+                        className="block text-secondary text-xs sm:text-sm font-medium mb-2"
+                      >
                         Subject *
                       </label>
                       <input
@@ -263,7 +316,10 @@ const Contact = () => {
                     </div>
 
                     <div>
-                      <label htmlFor="message" className="block text-secondary text-xs sm:text-sm font-medium mb-2">
+                      <label
+                        htmlFor="message"
+                        className="block text-secondary text-xs sm:text-sm font-medium mb-2"
+                      >
                         Message *
                       </label>
                       <textarea
@@ -279,14 +335,16 @@ const Contact = () => {
                     </div>
 
                     {submitStatus && (
-                      <div className={`p-3 sm:p-4 rounded-lg text-sm sm:text-base ${
-                        submitStatus === 'success' 
-                          ? 'bg-green-500/10 border border-green-500/20 text-green-400' 
-                          : 'bg-red-500/10 border border-red-500/20 text-red-400'
-                      }`}>
-                        {submitStatus === 'success' 
-                          ? 'Message sent successfully! I\'ll get back to you soon.' 
-                          : 'Failed to send message. Please try again or contact me directly.'}
+                      <div
+                        className={`p-3 sm:p-4 rounded-lg text-sm sm:text-base ${
+                          submitStatus === "success"
+                            ? "bg-green-500/10 border border-green-500/20 text-green-400"
+                            : "bg-red-500/10 border border-red-500/20 text-red-400"
+                        }`}
+                      >
+                        {submitStatus === "success"
+                          ? "✓ Message sent successfully! I'll get back to you soon."
+                          : "✗ Failed to send message. Please check console for error details (F12)."}
                       </div>
                     )}
 
@@ -315,7 +373,7 @@ const Contact = () => {
         </motion.div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Contact
+export default Contact;

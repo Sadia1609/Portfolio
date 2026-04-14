@@ -16,8 +16,7 @@ const Projects = () => {
     {
       id: 1,
       name: "PawMart",
-      image:
-        "https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=600&h=400&fit=crop",
+      image: "paw.png",
       shortDescription:
         "A full-stack pet adoption & supply marketplace with CRUD operations and secure authentication",
       technologies: [
@@ -47,68 +46,11 @@ const Projects = () => {
     },
     {
       id: 2,
-      name: "Hero Apps",
-      image:
-        "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&h=400&fit=crop",
-      shortDescription:
-        "A responsive app marketplace web application with dynamic app listing and installation features",
-      technologies: [
-        "React",
-        "React Router",
-        "Tailwind CSS",
-        "JavaScript",
-        "Recharts",
-        "LocalStorage API",
-      ],
-      liveLink: "https://hero-apps-react-js.netlify.app/",
-      githubLink: "https://github.com/Sadia1609/hero-apps",
-      fullDescription:
-        "Hero Apps is a responsive app marketplace web application where users can explore popular apps, view detailed ratings and reviews, install apps using localStorage, and manage their installed applications with a smooth user experience.",
-      challenges: [
-        "Implementing dynamic app listing with live search functionality",
-        "Creating app installation & uninstall using localStorage",
-        "Building responsive design for all devices with smooth user experience",
-        "Integrating Recharts for review analytics and data visualization",
-      ],
-      improvements: [
-        "Add user authentication and personalized recommendations",
-        "Implement real-time app updates and notifications",
-        "Add app categories and advanced filtering options",
-        "Integrate payment system for premium apps",
-      ],
-    },
-    // {
-    //   id: 3,
-    //   name: "Winter Pet Care",
-    //   image:
-    //   "https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=600&h=400&fit=crop&crop=center",
-    //   shortDescription: "A modern web application helping pet owners care for their pets during winter seasons",
-    //   technologies: ["React", "Vite", "Tailwind CSS", "DaisyUI", "Framer Motion", "Swiper.js"],
-    //   liveLink: "https://a9winterpetcare.netlify.app/",
-    //   githubLink: "https://github.com/Sadia1609/A9-winter-petcare",
-    //   fullDescription: "Winter Pet Care is designed to support pet owners with essential resources during the winter months. The platform provides expert advice, tips, and services including grooming, boarding, medical checkups, and emergency support to ensure pets stay warm, safe, and healthy in cold weather.",
-    //   challenges: [
-    //     "Creating seasonal-specific content and tips for pet care",
-    //     "Implementing smooth animations with Framer Motion",
-    //     "Building interactive sliders using Swiper.js for services showcase",
-    //     "Designing responsive UI with Tailwind CSS and DaisyUI"
-    //   ],
-    //   improvements: [
-    //     "Add real-time weather integration for location-based tips",
-    //     "Implement appointment booking system for consultations",
-    //     "Add user accounts for personalized pet care plans",
-    //     "Create mobile app version for better accessibility"
-    //   ]
-    // }
-
-    {
-      id: 4,
       name: "SecureExam",
       projectType: "Team Project",
       teamSize: 5,
       myRole: "Frontend Developer & Admin Module Lead",
-      image:
-        "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=600&h=400&fit=crop&crop=center",
+      image: "exam.png",
       shortDescription:
         "A complete full-stack online examination platform developed by a team of 4 developers.",
       technologies: [
@@ -169,12 +111,9 @@ const Projects = () => {
       },
 
       challenges: [
-        "Implementing role-based access control for 3 distinct user roles with proper permission management",
-        "Building real-time analytics dashboard with Chart.js and Recharts for revenue trends and user activity tracking",
         "Creating complete user management system with 3 states: Active, Inactive, and Deleted users with 30-day retention policy",
         "Developing 4 comprehensive reports modules with pagination and filtering",
         "Implementing secure JWT-based password reset system with 1-hour token expiration",
-        "Integrating Stripe payment gateway for premium course purchases",
         "Coordinating with 3 team members on Git workflow and resolving merge conflicts",
         "Ensuring consistent UI/UX across all modules developed by different team members",
       ],
@@ -188,6 +127,37 @@ const Projects = () => {
         "Implement certificate generation with QR code verification",
         "Add email notifications for exam schedules and result publications",
         "Develop mobile application (React Native) for better accessibility",
+      ],
+    },
+    {
+      id: 3,
+      name: "Hero Apps",
+      image: "apps.png",
+      shortDescription:
+        "A responsive app marketplace web application with dynamic app listing and installation features",
+      technologies: [
+        "React",
+        "React Router",
+        "Tailwind CSS",
+        "JavaScript",
+        "Recharts",
+        "LocalStorage API",
+      ],
+      liveLink: "https://hero-apps-react-js.netlify.app/",
+      githubLink: "https://github.com/Sadia1609/hero-apps",
+      fullDescription:
+        "Hero Apps is a responsive app marketplace web application where users can explore popular apps, view detailed ratings and reviews, install apps using localStorage, and manage their installed applications with a smooth user experience.",
+      challenges: [
+        "Implementing dynamic app listing with live search functionality",
+        "Creating app installation & uninstall using localStorage",
+        "Building responsive design for all devices with smooth user experience",
+        "Integrating Recharts for review analytics and data visualization",
+      ],
+      improvements: [
+        "Add user authentication and personalized recommendations",
+        "Implement real-time app updates and notifications",
+        "Add app categories and advanced filtering options",
+        "Integrate payment system for premium apps",
       ],
     },
   ];
@@ -229,8 +199,8 @@ const Projects = () => {
             </h2>
             <div className="w-16 sm:w-24 h-1 bg-primary mx-auto mb-4 sm:mb-6"></div>
             <p className="text-slate max-w-2xl mx-auto text-sm sm:text-base">
-              Here are some of my recent projects that showcase my skills and
-              passion for development
+              Here are some of my projects that showcase my skills and passion
+              for development
             </p>
           </motion.div>
 

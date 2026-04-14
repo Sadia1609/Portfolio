@@ -1,36 +1,41 @@
-import { useState, useEffect } from 'react'
-import { motion } from 'framer-motion'
-import { Button } from '@/components/ui/button'
-import { Menu, X } from 'lucide-react'
+import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import { Menu, X, Eye } from "lucide-react";
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false)
-  const [scrolled, setScrolled] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      const isScrolled = window.scrollY > 10
-      setScrolled(isScrolled)
-    }
+      const isScrolled = window.scrollY > 10;
+      setScrolled(isScrolled);
+    };
 
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const navItems = [
-    { name: 'About', href: '#about' },
-    { name: 'Skills', href: '#skills' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Contact', href: '#contact' }
-  ]
+    { name: "About", href: "#about" },
+    { name: "Skills", href: "#skills" },
+    { name: "Projects", href: "#projects" },
+    { name: "Contact", href: "#contact" },
+  ];
 
   const scrollToSection = (href) => {
-    const element = document.querySelector(href)
+    const element = document.querySelector(href);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
+      element.scrollIntoView({ behavior: "smooth" });
     }
-    setIsOpen(false)
-  }
+    setIsOpen(false);
+  };
+
+  // Function to VIEW resume (opens in new tab)
+  const handleViewResume = () => {
+    window.open("/Sadia Rahman-resume.pdf", "_blank");
+  };
 
   return (
     <motion.nav
@@ -38,7 +43,9 @@ const Navbar = () => {
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        scrolled ? 'glass py-2 sm:py-3' : 'bg-navy/80 backdrop-blur-md py-3 sm:py-4'
+        scrolled
+          ? "glass py-2 sm:py-3"
+          : "bg-navy/80 backdrop-blur-md py-3 sm:py-4"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -76,9 +83,10 @@ const Navbar = () => {
               <Button
                 variant="outline"
                 size="sm"
-                className="ml-2 lg:ml-4 glow-on-hover text-xs sm:text-sm"
-                onClick={() => window.open('/resume.pdf', '_blank')}
+                className="ml-2 lg:ml-4 glow-on-hover text-xs sm:text-sm flex items-center gap-2"
+                onClick={handleViewResume} // View only, not download
               >
+                <Eye size={14} />
                 Resume
               </Button>
             </motion.div>
@@ -98,7 +106,9 @@ const Navbar = () => {
         {/* Mobile Menu */}
         <motion.div
           initial={false}
-          animate={isOpen ? { opacity: 1, height: 'auto' } : { opacity: 0, height: 0 }}
+          animate={
+            isOpen ? { opacity: 1, height: "auto" } : { opacity: 0, height: 0 }
+          }
           transition={{ duration: 0.3 }}
           className="md:hidden overflow-hidden"
         >
@@ -118,16 +128,17 @@ const Navbar = () => {
             <Button
               variant="outline"
               size="sm"
-              className="w-full mt-3 sm:mt-4 text-sm"
-              onClick={() => window.open('/resume.pdf', '_blank')}
+              className="w-full mt-3 sm:mt-4 text-sm flex items-center justify-center gap-2"
+              onClick={handleViewResume} // View only
             >
-              Resume
+              <Eye size={14} />
+              View Resume
             </Button>
           </div>
         </motion.div>
       </div>
     </motion.nav>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;
