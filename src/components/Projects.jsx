@@ -143,7 +143,7 @@ const Projects = () => {
         "Recharts",
         "LocalStorage API",
       ],
-      liveLink: "https://hero-apps-react-js.netlify.app/",
+      liveLink: "https://hero-apps-phi.vercel.app/",
       githubLink: "https://github.com/Sadia1609/hero-apps",
       fullDescription:
         "Hero Apps is a responsive app marketplace web application where users can explore popular apps, view detailed ratings and reviews, install apps using localStorage, and manage their installed applications with a smooth user experience.",
