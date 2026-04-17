@@ -28,8 +28,8 @@ const Hero = () => {
   const handleDownloadResume = () => {
     // Create a link element
     const link = document.createElement("a");
-    link.href = "/Sadia Rahman-resume.pdf";
-    link.download = "Sadia Rahman-resume.pdf";
+    link.href = "/Sadia Rahman-Frontend Developer.pdf";
+    link.download = "Sadia Rahman-Frontend Developer.pdf";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);

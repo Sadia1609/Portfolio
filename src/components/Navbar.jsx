@@ -34,7 +34,7 @@ const Navbar = () => {
 
   // Function to VIEW resume (opens in new tab)
   const handleViewResume = () => {
-    window.open("/Sadia Rahman-resume.pdf", "_blank");
+    window.open("/Sadia Rahman-Frontend Developer.pdf", "_blank");
   };
 
   return (
