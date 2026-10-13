@@ -31,9 +31,9 @@ function ProfileImage() {
           >
             {/* Your Actual Photo */}
             <img
-              src="/sadia rahman.jpeg"
+              src="/Professional_Portrait.png"
               alt="Sadia Rahman"
-              className="w-full h-full object-cover"
+              className="w-full object-cover"
             />
 
             {/* Gradient overlay on hover */}
